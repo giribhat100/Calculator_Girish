@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Calculator</h1>
+    <form action="/calculate" method="post">
+        <input type="text" name="expression" value="{{ expression }}" placeholder="Enter expression" required>
+        <button type="submit">Calculate</button>
+    </form>
+    
+    {% if result %}
+        <p>Result: {{ result }}</p>
+    {% endif %}
+    
+    {% if error %}
+        <p style="color: red;">Invalid expression. Please try again.</p>
+    {% endif %}
+</body>
+</html>
